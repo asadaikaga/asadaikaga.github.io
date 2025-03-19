@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Caches on The blog of Zhixuan</title>
+    <link>//localhost:1313/cache/</link>
+    <description>Recent content in Caches on The blog of Zhixuan</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>XU Zhixuan ©</copyright>
+    <lastBuildDate>Wed, 19 Mar 2025 12:01:08 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/cache/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data, too much, too soon</title>
+      <link>//localhost:1313/cache/seeyouwindows10family_0319/</link>
+      <pubDate>Wed, 19 Mar 2025 12:01:08 +0900</pubDate>
+      <guid>//localhost:1313/cache/seeyouwindows10family_0319/</guid>
+      <description>&lt;p&gt;Recently I have a very sharp idea change about my data.&lt;/p&gt;&#xA;&lt;p&gt;Like for years, maybe more precisely, from I was in high school, I have been&#xA;taking regular notes about my mental state. Well, to be honest, it&amp;rsquo;s a strange&#xA;behaviour, it&amp;rsquo;s like if you are healthy everyday you don&amp;rsquo;t need no record. Or&#xA;you don&amp;rsquo;t need to take notes on the level of back pain if you don&amp;rsquo;t have any. I&#xA;take notes on mental states because I absolutely feel abnormal, feel I&amp;rsquo;m so&#xA;different from other people (the most stupid thing is that I&amp;rsquo;ve gone though like&#xA;24 years without a proper idea of my ADHD traits, while maybe a bit knowledge&#xA;about my ASD personality), but was actually treated and required as the &lt;em&gt;normal&#xA;people&lt;/em&gt; concept.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up ssh key for github</title>
+      <link>//localhost:1313/cache/github_experience_0318/</link>
+      <pubDate>Tue, 18 Mar 2025 15:31:49 +0900</pubDate>
+      <guid>//localhost:1313/cache/github_experience_0318/</guid>
+      <description>&lt;p&gt;You know ssh key?&#xA;No I don&amp;rsquo;t.&lt;/p&gt;&#xA;&lt;p&gt;Only used it once on a parallel computing class and nevermore. You know&#xA;a 和蔼小老头 who has been hired form a Tokyo Univerity associate professor&#xA;position. Sometimes I even doubt that you get bald and a big belly after years&#xA;of coding experience. In his class we are required to get access to the&#xA;university super computer. To get authorized, ssh keys are used to grant our personal computers to the gurdian at the door.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My university experience with latex and markdown</title>
+      <link>//localhost:1313/cache/onvimtexproj/</link>
+      <pubDate>Mon, 17 Mar 2025 12:18:12 +0900</pubDate>
+      <guid>//localhost:1313/cache/onvimtexproj/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been writing in LaTeX since my undergraduate years, and the things I&#xA;learned from school about that is never enough.&lt;/p&gt;&#xA;&lt;p&gt;Wanna type your own ideas on a computer? You&amp;rsquo;ve got many choices for the&#xA;softwares, like the classical choice, Microsoft Word, which goes so graphical&#xA;that even a nerd can perform 80% of its functionality. Personally I prefer&#xA;Markdown, a simple programming language but with considerable  power. In my&#xA;sophomore year I&amp;rsquo;m a dickhead, only received a lecture on C programming for one&#xA;semister and never have enough concentration to dive deeper, but I can write&#xA;markdown.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Test</title>
+      <link>//localhost:1313/cache/test/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/cache/test/</guid>
+      <description>&lt;p&gt;Hello world!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Post</title>
+      <link>//localhost:1313/cache/my-first-post/</link>
+      <pubDate>Wed, 05 Mar 2025 03:17:22 +0900</pubDate>
+      <guid>//localhost:1313/cache/my-first-post/</guid>
+      <description>&lt;p&gt;Hello world!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
