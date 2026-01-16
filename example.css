@@ -1,5 +1,4 @@
-/*@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed");*/
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed");
 
 /*
 	Minimaxing by HTML5 UP
@@ -22,7 +21,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font-family: inherit;
+	font: inherit;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -86,22 +85,11 @@ input, select, textarea {
 		width: device-width;
 	}
 
-/*	body {
+	body {
 		font-size: 13.5pt;
+		font-family: sans-serif;
 		background-color: #e3e9dc;
 		font-family: 'Ubuntu Condensed', sans-serif;
-		color: #878e83;
-		letter-spacing: -1px;
-	}*/
-	
-	body {
-		font-size: 16px;
-		background-color: #e3e9dc;
-	   font-family:
-	     "Noto Serif",
-	     "Noto Serif SC",
-	     "Noto Serif JP",
-	     serif;
 		color: #878e83;
 		letter-spacing: -1px;
 	}
@@ -142,7 +130,6 @@ input, select, textarea {
 
 	p {
 		line-height: 1.8em;
-		letter-spacing: 0px;
 	}
 
 	strong {
@@ -182,30 +169,6 @@ input, select, textarea {
 	section:last-child, article:last-child {
 		margin-bottom: 0;
 	}
-	
-/* User defined Structures*/
-
-
- 	.jp,
-	.cn {
-		width:50%;
-		margin-bottom: 1.em;
-		line-height: 1.3em;
-		letter-spacing: 0px;
-	   word-break: break-word;
-	}
-
-   .cn {
-      color: #40E0D0;
-    }
-    @media screen and (max-width: 600px) {   
-		  .jp, .cn {
-		    width: 100%;
-		  }
-		}
-
-
-
 
 /* Container */
 
