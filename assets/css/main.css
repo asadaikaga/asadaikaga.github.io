@@ -188,7 +188,7 @@ input, select, textarea {
 
  	.jp,
 	.cn {
-		width:50%;
+/*		width:50%;*/
 		margin-bottom: 1.em;
 		line-height: 1.3em;
 		letter-spacing: 0px;
@@ -198,11 +198,11 @@ input, select, textarea {
    .cn {
       color: #40E0D0;
     }
-    @media screen and (max-width: 980px) {   
+/*    @media screen and (max-width: 980px) {   
 		  .jp, .cn {
 		    width: 100%;
 		  }
-		}
+		}*/
 
 
 
