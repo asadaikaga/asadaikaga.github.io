@@ -203,6 +203,25 @@ input, select, textarea {
 		    width: 100%;
 		  }
 		}*/
+/* quotations */
+blockquote.quote {
+  margin: 0 0;
+  padding-left: 1em;
+  border-left: 2px solid currentColor;
+  line-height: 1.2em;
+  letter-spacing: 0px;
+}
+
+blockquote.quote em {
+  font-style: italic;
+}
+
+blockquote.quote .citation {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  opacity: 0.8;
+  letter-spacing:-1px
+}
 
 
 
