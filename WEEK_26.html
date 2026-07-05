@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>WEEK_26</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Configurating a new computer"><h1 id="Configurating a new computer" class="header"><a href="#Configurating a new computer">Configurating a new computer</a></h1></div>
+<p>
+上上周手里的ThinkPad X270不幸阵亡了。故障原因为主板type-C口短路。说来也怪我自己，洗主板之后没有仔细吹干，可能残留有水渍。一插上电就开始发烫，不该通的地方被水灌通了。
+之前想体验12寸小屏电脑，购入了X270。当时装上了Arch Linux，尝试了一直想用的i3wm。自然而然地它变成了我的主力机，记笔记写论文都在用。
+时至今日虽然短路问题被解决了，X270已复活；但当时主力机出了问题，我也确实吓了一大跳，又急得不行。
+千辛万苦把用户目录（$HOME/）备份了，匆匆下单了新电脑，无机可用的我盯上了手里那台2015年的ThinkPad系列旗舰机，碳纤维外壳，搭载Intel 5代CPU的X1 Carbon Gen3。
+</p>
+
+<p>
+2018年高中毕业的时候，我爹慷慨地让我继承他那本退休的单位电脑，也就是上文的那台X1 carbon。
+其实它的弧线机身并不长在我的审美点上，相比来说更喜欢X270那种方方正正的。
+但它当年给我带来了两大震撼：一是笔记本居然可以这么轻；二是笔记本休眠居然可以几乎不掉电（顺带一提，我现在也不知道为什么X1 carbon休眠掉电这么少，或许和它那块几乎赶上整机大小的巨型电池有关系）。
+而如今它又给我带来了新的震撼：在15年给员工发8G内存256G固态旗舰机的单位，说实话也挺任性的（并没有自抬身价的意思）。
+</p>
+
+<p>
+动手之前，也有犹豫。我知道这台X1 carbon的CPU要比X270早两代，总担心太重的系统它带不动。我爸妈寄过来的时候，它不幸地已经被装上了Win11。我和它相对无言，光标以龟速在滑行。
+最后我也没敢给它上压力，选了Linux Mint 22.3 zena。这个发行版使用了Ubuntu 24.04.1，是大约两年前稳定版本，桌面环境也是Linux Mint官方的Cinnamon桌面，相比GNOME能节省不少计算资源。
+</p>
+
+<p>
+又用回了Ubuntu。它在我手里还挺流畅的！（此处应该附图，如果我不偷懒的话，或许之后会更新）
+</p>
+
+<div id="Contents" class="toc"><h2 id="Contents" class="header"><a href="#Contents">Contents</a></h2></div>
+<p>
+这篇文章主要介绍我在一台新电脑上建立基于i3桌面、vim和latex的工作流的过程。
+这次使用了Linux Mint zena（附带Cinnamon桌面）发行版作为案例。
+将本文apt install命令替换为其他的安装命令，在其他发行版上也可以复现类似的工作流。
+因此，使用其他发行版时，这篇文章仍有参考价值。
+</p>
+
+<p>
+另外，虽然本工作流只使用i3桌面，但前半段安装过程中可以先登录Cinnamon桌面进行操作。
+</p>
+
+<p>
+本文分为以下几个部分：
+</p>
+<ol>
+<li>
+Copy files from remote: tailscale, ssh, rsync, git
+
+<li>
+Browsing and Viewing: qutebrowser, redshift
+
+<li>
+Windows Manager: i3conf (from now on you can use your i3 environment)
+
+<li>
+The editor: vim, vimwiki, ultisnips, vimtex
+
+<li>
+mvp to watch youtube videos
+
+<li>
+Other dependencies: texlive, zathura
+
+<li>
+(Optional) bashrc, trash
+
+</ol>
+<div id="Configurating a new computer-1. Copy files from remote: tailscale, ssh, rsync, git"><h2 id="1. Copy files from remote: tailscale, ssh, rsync, git" class="header"><a href="#Configurating a new computer-1. Copy files from remote: tailscale, ssh, rsync, git">1. Copy files from remote: tailscale, ssh, rsync, git</a></h2></div>
+<pre>
+# If the distribution is ubuntu, use apt to install i3-wm
+sudo apt install i3-wm
+
+# install and setup tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up # manual login needed
+
+# installing rsync
+sudo apt install rsync
+
+# install git
+sudo apt install git
+
+# ssh configurations
+# connect without password
+ssh-keygen -t rsa
+# If you know the server you are connecting
+# comment the next line out and replace with your user and domain
+# ssh-copy-id user@domain
+</pre>
+
+
+<div id="Configurating a new computer-2. Browsing and Viewing: qutebrowser, redshift"><h2 id="2. Browsing and Viewing: qutebrowser, redshift" class="header"><a href="#Configurating a new computer-2. Browsing and Viewing: qutebrowser, redshift">2. Browsing and Viewing: qutebrowser, redshift</a></h2></div>
+<pre>
+# install browser
+sudo apt install qutebrowser
+
+# TODO: copy the bookmark to a new folder
+
+# install redshift for temperature adjust
+sudo apt install redshift
+
+# if there is no redshift directory
+dirname="$HOME/.config"
+if [ ! -d "$dirname" ]
+then
+    echo "File doesn't exist. Creating now"
+    mkdir -p -- $dirname
+    echo "File created"
+else
+    echo "File exists"
+fi
+cp "$YOUR_PATH_TO_CONF/redshift.conf" "$HOME/.config/redshift.conf"
+</pre>
+
+<div id="Configurating a new computer-3. Windows Manager: i3conf (from now on you can use your i3 environment)"><h2 id="3. Windows Manager: i3conf (from now on you can use your i3 environment)" class="header"><a href="#Configurating a new computer-3. Windows Manager: i3conf (from now on you can use your i3 environment)">3. Windows Manager: i3conf (from now on you can use your i3 environment)</a></h2></div>
+<pre>
+# move the dotfiles
+
+# polybar
+sudo apt install polybar
+dirname="$HOME/.config/polybar"
+if [ ! -d $dirname ]
+then
+	mkdir -p -- $dirname
+else
+	echo "Folder exists"
+fi
+rsync -a "$HOME/Documents/dotfiles/polybar/" $dirname
+# i3-lock color
+sudo apt intall i3lock-fancy
+# feh
+sudo apt install feh
+# picom
+sudo apt install picom
+# fcitx5
+
+# brightness (which one is used for linux mint?)
+
+# alacritty (most important)
+sudo apt install alacritty
+# If exist not alacritty folder
+dirname="$HOME/.config/alacritty"
+if [ ! -d "$dirname" ]
+then
+	echo "Folder not exist, creating now"
+	mkdir -p -- $dirname
+	echo "Folder created"
+else
+	echo "Folder exists"
+fi
+cp "$HOME/Documents/dotfiles/alacritty/alacritty.toml" "$dirname"
+# rofi or dmenu
+sudo apt install dmenu
+</pre>
+<div id="Configurating a new computer-4. The editor: vim, vimwiki, ultisnips, vimtex"><h2 id="4. The editor: vim, vimwiki, ultisnips, vimtex" class="header"><a href="#Configurating a new computer-4. The editor: vim, vimwiki, ultisnips, vimtex">4. The editor: vim, vimwiki, ultisnips, vimtex</a></h2></div>
+<pre>
+# download vim
+sudo apt install vim
+# vim config files in .vimrc
+rsync -a "$HOME/Documents/dotfiles/vim/.vimrc" "$HOME/"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# rsync the vimwiki files from the remote server
+rsync -a "zhixuan@100.77.20.117:/home/zhixuan/backup_archtp/vimwiki" "/home/luka/"
+vim -c PlugInstall
+# UltiSnips Snippet file
+</pre>
+<div id="Configurating a new computer-5. mvp to watch youtube videos"><h2 id="5. mvp to watch youtube videos" class="header"><a href="#Configurating a new computer-5. mvp to watch youtube videos">5. mvp to watch youtube videos</a></h2></div>
+<div id="Configurating a new computer-6. Other dependencies: texlive, zathura"><h2 id="6. Other dependencies: texlive, zathura" class="header"><a href="#Configurating a new computer-6. Other dependencies: texlive, zathura">6. Other dependencies: texlive, zathura</a></h2></div>
+<div id="Configurating a new computer-7. (Optional) bashrc, trash"><h2 id="7. (Optional) bashrc, trash" class="header"><a href="#Configurating a new computer-7. (Optional) bashrc, trash">7. (Optional) bashrc, trash</a></h2></div>
+
+</body>
+</html>
