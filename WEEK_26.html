@@ -48,34 +48,45 @@
 <p>
 本文分为以下几个部分：
 </p>
-<ol>
+<ul>
 <li>
-Copy files from remote: tailscale, ssh, rsync, git
+<a href="WEEK_26.html#Configurating a new computer">#Configurating a new computer</a>
+
+<ul>
+<li>
+<a href="WEEK_26.html#Copy files from remote: tailscale, ssh, rsync, git">#Copy files from remote: tailscale, ssh, rsync, git</a>
 
 <li>
-Browsing and Viewing: qutebrowser, redshift
+<a href="WEEK_26.html#Browsing and Viewing: qutebrowser, redshift">#Browsing and Viewing: qutebrowser, redshift</a>
 
 <li>
-Windows Manager: i3conf (from now on you can use your i3 environment)
+<a href="WEEK_26.html#Windows Manager: i3conf (from now on you can use your i3 environment)">#Windows Manager: i3conf (from now on you can use your i3 environment)</a>
 
 <li>
-The editor: vim, vimwiki, ultisnips, vimtex
+<a href="WEEK_26.html#The editor: vim, vimwiki, ultisnips, vimtex">#The editor: vim, vimwiki, ultisnips, vimtex</a>
 
 <li>
-mvp to watch youtube videos
+<a href="WEEK_26.html#Other dependencies: texlive, zathura">#Other dependencies: texlive, zathura</a>
 
 <li>
-Other dependencies: texlive, zathura
+<a href="WEEK_26.html#bashrc">#bashrc</a>
 
-<li>
-(Optional) bashrc, trash
+</ul>
+</ul>
+<p>
+Second Update: 2026-07-17
+</p>
 
-</ol>
-<div id="Configurating a new computer-1. Copy files from remote: tailscale, ssh, rsync, git"><h2 id="1. Copy files from remote: tailscale, ssh, rsync, git" class="header"><a href="#Configurating a new computer-1. Copy files from remote: tailscale, ssh, rsync, git">1. Copy files from remote: tailscale, ssh, rsync, git</a></h2></div>
+<p>
+本来文章讨论的是Linux Mint + i3 windows manager的设定。在ThinkPad X1 Carbon上运行的很不错的Mint Zena, 在新的这一台intel十代CPU的Let‘s note上就显得太轻量了。新一代的设定采用了Fedora 44的KDE Plasma桌面发行版，使用了Hyprland tiling windows manager, 我觉得体验仍然非常棒，配置还变简单了。如果有机会再写一篇文章介绍wayland的生态。
+</p>
+
+<p>
+另外还有一些设定我觉得很有趣的，比如说nnn+trash，使用TUI进行文件管理；还有qutebrowser+mvp，可以用比较少的资源占用来观看YouTube视频。
+</p>
+
+<div id="Configurating a new computer-Copy files from remote: tailscale, ssh, rsync, git"><h2 id="Copy files from remote: tailscale, ssh, rsync, git" class="header"><a href="#Configurating a new computer-Copy files from remote: tailscale, ssh, rsync, git">Copy files from remote: tailscale, ssh, rsync, git</a></h2></div>
 <pre>
-# If the distribution is ubuntu, use apt to install i3-wm
-sudo apt install i3-wm
-
 # install and setup tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up # manual login needed
@@ -95,12 +106,16 @@ ssh-keygen -t rsa
 </pre>
 
 
-<div id="Configurating a new computer-2. Browsing and Viewing: qutebrowser, redshift"><h2 id="2. Browsing and Viewing: qutebrowser, redshift" class="header"><a href="#Configurating a new computer-2. Browsing and Viewing: qutebrowser, redshift">2. Browsing and Viewing: qutebrowser, redshift</a></h2></div>
+<div id="Configurating a new computer-Browsing and Viewing: qutebrowser, redshift"><h2 id="Browsing and Viewing: qutebrowser, redshift" class="header"><a href="#Configurating a new computer-Browsing and Viewing: qutebrowser, redshift">Browsing and Viewing: qutebrowser, redshift</a></h2></div>
 <pre>
 # install browser
 sudo apt install qutebrowser
 
-# TODO: copy the bookmark to a new folder
+# copy the configuration and bookmark to a new folder
+mkdir -p "$HOME/.config/qutebrowser"
+cp "$HOME/setup/dotfiles/qutebrowser/config.py" "$HOME/.config/qutebrowser/"
+mkdir -p "$HOME/.config/qutebrowser/bookmarks"
+cp "$HOME/setup/dotfiles/qutebrowser/bookmarks/urls" "$HOME/.config/qutebrowser/bookmarks"
 
 # install redshift for temperature adjust
 sudo apt install redshift
@@ -118,9 +133,16 @@ fi
 cp "$YOUR_PATH_TO_CONF/redshift.conf" "$HOME/.config/redshift.conf"
 </pre>
 
-<div id="Configurating a new computer-3. Windows Manager: i3conf (from now on you can use your i3 environment)"><h2 id="3. Windows Manager: i3conf (from now on you can use your i3 environment)" class="header"><a href="#Configurating a new computer-3. Windows Manager: i3conf (from now on you can use your i3 environment)">3. Windows Manager: i3conf (from now on you can use your i3 environment)</a></h2></div>
+
+
+<div id="Configurating a new computer-Windows Manager: i3conf (from now on you can use your i3 environment)"><h2 id="Windows Manager: i3conf (from now on you can use your i3 environment)" class="header"><a href="#Configurating a new computer-Windows Manager: i3conf (from now on you can use your i3 environment)">Windows Manager: i3conf (from now on you can use your i3 environment)</a></h2></div>
 <pre>
+# If the distribution is ubuntu, use apt to install i3-wm
+sudo apt install i3-wm
+
 # move the dotfiles
+mkdir -p "$HOME/.config/i3"
+cp "$HOME/setup/dotfiles/i3/config" "$HOME/.config/i3/"
 
 # polybar
 sudo apt install polybar
@@ -131,20 +153,28 @@ then
 else
 	echo "Folder exists"
 fi
-rsync -a "$HOME/Documents/dotfiles/polybar/" $dirname
+rsync -a "$HOME/setup/dotfiles/polybar/" $dirname
+
 # i3-lock color
 sudo apt intall i3lock-fancy
-# feh
+
+# feh for wall papers
 sudo apt install feh
+
 # picom
 sudo apt install picom
-# fcitx5
+
+# fcitx5 for input method (Chinese and Japanese)
+sudo apt install fcitx5
+sudo apt install fcitx5-mozc
+sudo apt install fcitx5-chinese-addon
 
 # brightness (which one is used for linux mint?)
+sudo apt install brightnessctl
 
 # alacritty (most important)
 sudo apt install alacritty
-# If exist not alacritty folder
+
 dirname="$HOME/.config/alacritty"
 if [ ! -d "$dirname" ]
 then
@@ -154,26 +184,60 @@ then
 else
 	echo "Folder exists"
 fi
-cp "$HOME/Documents/dotfiles/alacritty/alacritty.toml" "$dirname"
+cp "$HOME/setup/dotfiles/alacritty/alacritty.toml" "$dirname"
 # rofi or dmenu
 sudo apt install dmenu
 </pre>
-<div id="Configurating a new computer-4. The editor: vim, vimwiki, ultisnips, vimtex"><h2 id="4. The editor: vim, vimwiki, ultisnips, vimtex" class="header"><a href="#Configurating a new computer-4. The editor: vim, vimwiki, ultisnips, vimtex">4. The editor: vim, vimwiki, ultisnips, vimtex</a></h2></div>
+<div id="Configurating a new computer-The editor: vim, vimwiki, ultisnips, vimtex"><h2 id="The editor: vim, vimwiki, ultisnips, vimtex" class="header"><a href="#Configurating a new computer-The editor: vim, vimwiki, ultisnips, vimtex">The editor: vim, vimwiki, ultisnips, vimtex</a></h2></div>
 <pre>
 # download vim
 sudo apt install vim
-# vim config files in .vimrc
-rsync -a "$HOME/Documents/dotfiles/vim/.vimrc" "$HOME/"
+
+# install git
+sudo apt install git
+
+# vim config files and Ultisnips config files
+cp "$HOME/setup/dotfiles/vim/vimrc" "$HOME/.vimrc"
+mkdir -p "$HOME/.vim/UltiSnips/"
+rsync -av "$HOME/setup/dotfiles/vim/vim/UltiSnips/" "$HOME/.vim/"
+
+# download vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
 # rsync the vimwiki files from the remote server
-rsync -a "zhixuan@100.77.20.117:/home/zhixuan/backup_archtp/vimwiki" "/home/luka/"
+rsync -a "remoteusr@remoteaddress" "$HOME"
+
 vim -c PlugInstall
-# UltiSnips Snippet file
 </pre>
-<div id="Configurating a new computer-5. mvp to watch youtube videos"><h2 id="5. mvp to watch youtube videos" class="header"><a href="#Configurating a new computer-5. mvp to watch youtube videos">5. mvp to watch youtube videos</a></h2></div>
-<div id="Configurating a new computer-6. Other dependencies: texlive, zathura"><h2 id="6. Other dependencies: texlive, zathura" class="header"><a href="#Configurating a new computer-6. Other dependencies: texlive, zathura">6. Other dependencies: texlive, zathura</a></h2></div>
-<div id="Configurating a new computer-7. (Optional) bashrc, trash"><h2 id="7. (Optional) bashrc, trash" class="header"><a href="#Configurating a new computer-7. (Optional) bashrc, trash">7. (Optional) bashrc, trash</a></h2></div>
+<div id="Configurating a new computer-Other dependencies: texlive, zathura"><h2 id="Other dependencies: texlive, zathura" class="header"><a href="#Configurating a new computer-Other dependencies: texlive, zathura">Other dependencies: texlive, zathura</a></h2></div>
+<pre>
+cd /tmp # working directory of your choice
+wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+zcat &lt; install-tl-unx.tar.gz | tar xf - # note final - on that command line
+cd install-tl-2*
+sudo ./install-tl --no-interaction # as root or with writable destination;
+# without the explicit "perl" is also usually fine;
+# omit --no-interaction if you want to select options;
+# may take several hours to run.
+# The path is updated by
+# PATH=$PATH:/usr/local/texlive/2026/bin/x86_64-linux
+# MANPATH=$MANPATH:/usr/local/texlive/2026/texmf-dist/doc/man
+# INFOPATH=$INFOPATH:/usr/local/texlive/2026/texmf-dist/doc/info
+# And is already written in bashprofile
+
+sudo apt install zathura
+</pre>
+<div id="Configurating a new computer-bashrc"><h2 id="bashrc" class="header"><a href="#Configurating a new computer-bashrc">bashrc</a></h2></div>
+<pre>
+cp "$HOME/setup/dotfiles/bash/bashrc" "$HOME/.bashrc"
+cp "$HOME/setup/dotfiles/bash/bash_aliases" "$HOME/.bash_aliases"
+cp "$HOME/setup/dotfiles/bash/bash_profile" "$HOME/.bash_profile"
+</pre>
+
+<p>
+Second Update: 2026-07-17
+</p>
 
 </body>
 </html>
