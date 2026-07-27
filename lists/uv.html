@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<title>uv</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="How to use uv tools for virtual python environment"><h1 id="How to use uv tools for virtual python environment" class="header"><a href="#How to use uv tools for virtual python environment">How to use uv tools for virtual python environment</a></h1></div>
+<ul>
+<li>
+安装 uv
+<pre>
+curl -LsSf https://astral.sh/uv/install.sh | sh
+</pre>
+
+<li>
+创建项目并初始化环境
+<pre>
+uv init myproject
+cd myproject
+uv venv
+</pre>
+
+</ul>
+<p>
+<code>uv init myproject</code> 这行代码比较类似于 <code>git init</code>, 也可以进入myproject文件夹之后直接运行 <code>uv init</code>
+</p>
+
+<ul>
+<li>
+
+<pre>
+source .venv/bin/activate
+</pre>
+
+<li>
+install
+<pre>
+uv pip install numpy scipy matplotlib
+</pre>
+
+</ul>
+
+</body>
+</html>

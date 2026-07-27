@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>LaTeX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Latex是一种信仰"><h1 id="Latex是一种信仰" class="header"><a href="#Latex是一种信仰">Latex是一种信仰</a></h1></div>
+<p>
+写latex的时候，丝毫没有犹豫，立刻选择了用中文来介绍latex。
+说实在的，网站本身的建设并没有用到很多latex，然而latex对我来说宛如信仰。我最喜欢的一篇关于latex的文章，就是（the late）Gilles Castel关于快速latex笔记的博客。五年内我看了很多遍，从中学到了很多特别重要的关于工作流程的思想。
+</p>
+
+<p>
+latex是一门很杂的学问。Knuth架构tex系统之后，这个系统以开源的方式发展，越来越多的人参与贡献。同一个问题往往有多种不同的解决方案，光是输入algorithm的功能就有不下四种latex package来实现(algorithm, algorithmic, algorithmx, algorithm2e, etc.)。因此这里主要记录一些常见问题的解决方案，而不是为latex的生态做出一个整体的描述。
+</p>
+
+<p>
+另外就是，在linux上使用latex，虽然绝大多数的linux包管理器(apt, yum, dnf, pacman, etc.)都会包含texlive-full。但包管理的安装方式不太支持断线重连，下载texlive-full这样动辄几GB的大项目很容易缺安装包。因此更推荐使用texlive官方的perl脚本来安装。
+</p>
+
+<ul>
+<li>
+booktab
+<pre>
+\toprule
+\midrule
+\bottomrule
+</pre>
+
+</ul>
+
+</body>
+</html>
