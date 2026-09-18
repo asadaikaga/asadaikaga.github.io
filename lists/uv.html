@@ -30,6 +30,10 @@ uv venv
 <code>uv init myproject</code> 这行代码比较类似于 <code>git init</code>, 也可以进入myproject文件夹之后直接运行 <code>uv init</code>
 </p>
 
+<p>
+还有一个非常邪修的方法。venv的启动文件已经放在<code>.venv/bin</code> 中了，有非常多个activate文件。只需要运行 <code>source activate</code> 就可以进入venv环境了。
+</p>
+
 <ul>
 <li>
 
@@ -44,6 +48,23 @@ uv pip install numpy scipy matplotlib
 </pre>
 
 </ul>
+<p>
+还有一个非常有趣的地方是，在自动创建的 <code>pyproject.toml</code> 中，有一行关于dependencies的代码
+</p>
+
+<pre>
+[project]
+name = "cond"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "&gt;=3.13"
+dependencies = []
+</pre>
+
+<p>
+能不能在toml中自动填写dependency之后，<code>venv</code> 创建虚拟环境的时候会自动安装好dependency呢？如果确实实现了的话还挺爽的。
+</p>
 
 </body>
 </html>

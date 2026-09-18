@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<title>linsol</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<ul>
+<li>
+main.py
+<pre class="brush: python">
+from __future__ import annotations
+
+import argparse from pathlib import Path]
+
+from src.config import load_config
+from src.core import run
+
+def resolve_project_config(path: str | Path) -&gt; Path:
+	canddidate = Path(path)
+	config = load_config(candidate)
+	
+	if isinstance(config.get("path"),dict) and "path" in config["path"]:
+		return Path(config["path"]["path"])
+		
+	return candidate
+
+def resolve_project_config():
+	path = Path(path)
+	config = load_config(path)
+	
+	if "path" in config:
+		return config["path"]
+		
+	return path
+	
+def main():
+	config_file = "run.toml"
+	config_file = resolve_project_config(config_file)
+	config = load_config(config_file)
+	result = run(config)
+</pre>
+
+</ul>
+
+</body>
+</html>

@@ -17,5 +17,10 @@ When pasting Latex Algorithm to beamer, the [htbp] label should be changed to [H
 </ul>
 <div id="Zellij"><h1 id="Zellij" class="header"><a href="#Zellij">Zellij</a></h1></div>
 
+<div id="kitty"><h1 id="kitty" class="header"><a href="#kitty">kitty</a></h1></div>
+<pre>
+find . -maxdepth 2 -name history.png | fzf --preview 'kitty +kitten icat --clear --transfer-mode=stream {}'
+</pre>
+
 </body>
 </html>
